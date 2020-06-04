@@ -1,0 +1,32 @@
+#+TITLE: CouchDB CentOS installation
+
+** System environment
+
+- CentOS Linux release 8.1.1911 (Core)
+
+- couchdb-3.1.0
+
+** Adding repo
+
+#+BEGIN_SRC sh
+cat > /etc/yum.repos.d/bintray-apache-couchdb-rpm.repo
+#+END_SRC
+
+#+BEGIN_SRC conf
+[bintray--apache-couchdb-rpm]
+name=bintray--apache-couchdb-rpm
+baseurl=http://apache.bintray.com/couchdb-rpm/el$releasever/$basearch/
+gpgcheck=0
+repo_gpgcheck=0
+enabled=1
+#+END_SRC
+
+** Install package
+
+#+BEGIN_SRC sh
+sudo yum -y install epel-release && sudo yum -y install couchdb
+#+END_SRC
+
+** Resources
+
+- https://docs.couchdb.org/en/stable/install/unix.html
